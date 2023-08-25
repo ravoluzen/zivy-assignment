@@ -1,9 +1,15 @@
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react';
 import { fetchComments } from '../utils/api';
 
-const CommentContext = createContext({});
+const CommentContext = createContext({
+  comments: [],
+  loadMoreComments: () => { },
+});
+type CommentContextType = {
+  children: ReactNode;
+}
 
-export const CommentProvider = ({ children }) => {
+export const CommentProvider = ({ children }: CommentContextType) => {
   const [comments, setComments] = useState<any>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const commentsPerPage = 10;

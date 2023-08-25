@@ -1,10 +1,17 @@
 
-import { createContext, useContext, useState } from 'react';
+import { ReactNode, createContext, useContext, useState } from 'react';
 import { useRouter } from 'next/router';
 
-const AuthContext = createContext({});
+const AuthContext = createContext({
+    user: null, 
+    login: (username: string, password: string) => {}, 
+    logout: () => {}
+});
 
-export const AuthProvider = ({ children }) => {
+type AuthContextType = {
+    children: ReactNode;
+  }
+export const AuthProvider = ({ children }: AuthContextType) => {
   const [user, setUser] = useState<any>(null);
   const router = useRouter()
 
