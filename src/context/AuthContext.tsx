@@ -31,7 +31,6 @@ export const AuthProvider = ({ children }: AuthContextType) => {
   }
 
   const logout = () => {
-    router.push('/login')
     setUser(null);
   };
 
