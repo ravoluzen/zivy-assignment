@@ -16,8 +16,8 @@ export const AuthProvider = ({ children }: AuthContextType) => {
   const router = useRouter()
 
   const credentials = {
-    username: 'yourUsername',
-    password: 'yourPassword',
+    username: 'Username',
+    password: 'Password',
   }
 
   const login = (username: string, password: string) => {
@@ -31,6 +31,7 @@ export const AuthProvider = ({ children }: AuthContextType) => {
   }
 
   const logout = () => {
+    router.push('/login')
     setUser(null);
   };
 
